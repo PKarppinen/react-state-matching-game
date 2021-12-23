@@ -17,15 +17,13 @@ class App extends Component{
     }
   }
 
-  startGame(numTiles) {
-    this.setState(function(state) {
-      return {
+  startGame = (numTiles) => {
+    this.setState((state) => ({
         playing: true,
         previousTileIndex: null,
         toBeCleared: null,
-        tiles: createTiles(state.numTiles)
-      };
-    })
+        tiles: createTiles(state.numTiles)      
+    }))
   }
 
   render() {
