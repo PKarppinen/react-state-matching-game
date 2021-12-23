@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import OptionsPanel from '../OptionsPanel'
 import Board from '../Board'
-import createTiles from '../../misc/utils';
+import { createTiles } from '../../misc/utils';
 import './App.css';
 
 class App extends Component{
