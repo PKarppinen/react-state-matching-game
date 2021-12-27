@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const useHover = () => {
     const ref = useRef();
-    const hovered, setHovered = useState(false);
+    const hovered = useState(false);
 
     useEffect(() => {
         const refCopy = ref;
