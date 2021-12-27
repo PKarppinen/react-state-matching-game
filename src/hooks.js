@@ -2,12 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 
 const useHover = () => {
     const ref = useRef();
-    const hovered = useState(false);
+    const [hovered, setHovered] = useState(false);
+
+    const enter = () => { setHovered(true); }
+    const leave = () => { setHovered(false); }
 
     useEffect(() => {
         const refCopy = ref;
-        refCopy.addEventListener('mouseenter', enter);
-        refCopy.addEventListener('mouseleave', leave);        
+        refCopy.current.addEventListener('mouseenter', enter);
+        refCopy.current.addEventListener('mouseleave', leave);        
 
         return () => {
             refCopy.current.removeEventListener('mouseenter', enter);
@@ -16,14 +19,6 @@ const useHover = () => {
     });    
 
     return [ref, hovered];
-}
-
-const enter = () => {
-    setHovered(true);
-}
-
-const leave = () => {
-    setHovered(false);
 }
 
 export default useHover;
